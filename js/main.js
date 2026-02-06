@@ -277,11 +277,21 @@ function renderDedications(list) {
 function updateTotalAmount() {
   let total = 0;
 
+  const payBtn = document.getElementById("payBtn");
+  if (!selectedDedications.size) {
+    payBtn.classList.add("dedication__pay-btn--disabled");
+  } else {
+    payBtn.classList.remove("dedication__pay-btn--disabled");
+  }
+
+  let items = [];
+
   selectedDedications.forEach((item) => {
+    items.push(item.title);
     total += item.price * item.quantity;
   });
 
-  document.getElementById("totalAmount").textContent = formatCurrency(total);
+  document.getElementById("selectedDedications").textContent = items.join(', ');
 }
 
 function autoSelectDefaultItems() {
