@@ -4,24 +4,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const trigger = document.getElementById("videoTrigger");
 const embed = document.getElementById("videoEmbed");
-
-trigger.addEventListener("click", () => {
-  embed.innerHTML = `
-<iframe 
-  class="video__main"
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/8U_nLVItqdw?si=3wLFxdBhN1e4hBdA&autoplay=1&mute=1&controls=0&rel=0&playsinline=1"
-  title="YouTube video player"
-  frameborder="0"
-  allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  referrerpolicy="strict-origin-when-cross-origin"
-  allowfullscreen>
-</iframe>`;
-
-  trigger.style.display = "none";
-  embed.hidden = false;
-});
+if (trigger && embed) {
+  trigger.addEventListener("click", () => {
+    embed.innerHTML = `
+  <iframe 
+    class="video__main"
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/8U_nLVItqdw?si=3wLFxdBhN1e4hBdA&autoplay=1&mute=1&controls=0&rel=0&playsinline=1"
+    title="YouTube video player"
+    frameborder="0"
+    allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>`;
+  
+    trigger.style.display = "none";
+    embed.hidden = false;
+  });
+}
 
 // Donors Data Loader
 (function () {
@@ -220,7 +221,7 @@ function parseAPIData(data) {
       description,
       hasInput: name.toLowerCase() === "letter",
       inputLabel: "Number of letters*",
-      inputValue: 6,
+      inputValue: 0,
       isFeatured: name.toLowerCase() === "crown",
     };
   });
@@ -312,10 +313,10 @@ function toggleDedication(card) {
   const dedication = dedicationsData.find((d) => d.id === id);
 
   if (selectedDedications.has(id)) {
-    if (selectedDedications.size === 1) {
-      alert("At least one dedication must be selected.");
-      return;
-    }
+    // if (selectedDedications.size === 1) {
+    //   alert("At least one dedication must be selected.");
+    //   return;
+    // }
 
     selectedDedications.delete(id);
     card.classList.remove("dedication__card--selected");
@@ -397,7 +398,7 @@ async function init() {
     grid.style.display = "grid";
 
     renderDedications(dedicationsData);
-    autoSelectDefaultItems();
+    // autoSelectDefaultItems();
   } catch (err) {
     loading.style.display = "none";
     error.style.display = "block";
