@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="Join the Luzerne County Community Torah project. Participate in dedicating letters and celebrate the completion ceremony on July 10th at Old Orchard Hall in Port Moody." />
+
+    <title>Payment - Community Torah | Luzerne County</title>
+
+    <!-- Font preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <!-- Font preload -->
+    <link rel="preload" href="css/reset.css" as="style">
+    <link rel="preload" href="css/style.css" as="style">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+</head>
+
+
+<body>
+
+
+    <!-- MAIN -->
+    <main id="main">
+    
+    
+    
+        <!-- PAYMENT -->
+        <section class="payment">
+
+            <!-- Card -->
+            <div class="payment__card">
+    
+
+                <!-- Title -->
+                <h2 class="payment__title">Make your monthly commitment</h2>
+    
+    
+                <!-- Form -->
+                <form class="payment__form">
+    
+                    <!-- ===== Full Name ===== -->
+                    <div class="payment__group">
+                        
+                        <label class="payment__label">
+                            Full Name <span class="payment__required">*</span>
+                        </label>
+    
+                        <div class="payment__row">
+    
+                            <div class="payment__field">
+                                <input type="text" class="payment__input" aria-label="First Name" required />
+                                <span class="payment__sub-label">First Name</span>
+                            </div>
+    
+                            <div class="payment__field">
+                                <input type="text" class="payment__input" aria-label="Last Name" required />
+                                <span class="payment__sub-label">Last Name</span>
+                            </div>
+    
+                        </div>
+
+                    </div>
+    
+    
+                    <!-- ===== Amount ===== -->
+                    <div class="payment__group">
+                        <label class="payment__label">
+                            Monthly Donation Amount <span class="payment__required">*</span>
+                        </label>
+    
+                        <div class="payment__amount">
+                            <span class="payment__currency">$</span>
+                            <input type="number" class="payment__input" placeholder="Enter amount" required />
+                        </div>
+                    </div>
+    
+    
+                    <!-- ===== Email ===== -->
+                    <div class="payment__group">
+                        <label class="payment__label">
+                            Email <span class="payment__required">*</span>
+                        </label>
+    
+                        <input type="email" class="payment__input" required />
+                    </div>
+    
+    
+                    <!-- ===== Payment Method ===== -->
+                    <div class="payment__group">
+                        
+                        <label class="payment__label">
+                            Payment <span class="payment__required">*</span>
+                        </label>
+    
+                        <div class="payment__options">
+    
+                            <label class="payment__option">
+                                <input type="radio" name="paymentMethod" value="credit-card">
+                                <span>Credit Card</span>
+                            </label>
+    
+                            <label class="payment__option">
+                                <input type="radio" name="paymentMethod" value="paypal" checked>
+                                <span>Paypal</span>
+                            </label>
+    
+                        </div>
+                        
+                    </div>
+    
+                    
+                    <!-- ===== Comments ===== -->
+                    <div class="payment__group">
+                        
+                        <label class="payment__label">Comments</label>
+    
+                        <textarea class="payment__textarea" placeholder="Write your message here..."></textarea>
+                    
+                    </div>
+    
+                    
+    
+                    <!-- ===== Captcha ===== -->
+                    <!-- Add captcha here -->
+    
+    
+                    <!-- ===== Submit ===== -->
+                    <button type="submit" class="btn btn--white payment__submit">
+                        SUBMIT
+                        <span class="btn__icon btn__icon--large" aria-hidden="true"><img src="images/arow-icon.svg" alt="arrow upright icon"></span>
+                        <span class="btn__bg"></span>
+                    </button>
+    
+                </form>
+
+
+            </div>
+
+        </section>
+        <!-- /PAYMENT -->
+    
+    
+    
+    </main>
+    <!-- /MAIN -->
+
+
+
+
+    <script src="js/button-animate.js" defer></script>
+
+
+
+</body>
+
+</html>
