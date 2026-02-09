@@ -383,16 +383,19 @@ document.getElementById("payBtn").addEventListener("click", () => {
     return;
   }
 
+  console.log("Selected Dedications:", selectedDedications, Array.from(selectedDedications.values()));
+
   const orderData = {
-    items: Array.from(selectedDedications.values()),
+    items: Array.from(selectedDedications.values()).map(item => {
+      return item.title + (item.quantity > 1 ? ` (x${item.quantity})` : '');
+  }).join(', '),
     total: Array.from(selectedDedications.values()).reduce(
       (sum, i) => sum + i.price * i.quantity,
       0,
     ),
   };
 
-  console.log("Order:", orderData);
-  alert("Proceeding to payment: " + formatCurrency(orderData.total));
+  window.location.href = `/payment-form?dedication=${encodeURIComponent(orderData.items)}&amount=${orderData.total}`;
 });
 
 async function init() {

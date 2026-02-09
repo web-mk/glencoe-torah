@@ -1455,3 +1455,10 @@ input.dedication__input {
     border-right: 1px solid #100821;
   }
 }
+
+
+/* COGNITO */
+html #form1 .cog-label, :root:root:root:root:root #form1 .cog-label,
+#form1 :root:root:root .cog-cognito--styled.cog-cognito--protect-css, #form1 :root:root .cog-cognito--styled.cog-cognito--protect-css:not(.el-select-dropdown--long) *, #form1 :root:root .cog-cognito--styled.cog-cognito--protect-css:not(.el-select-dropdown--long) *::before, #form1 :root:root .cog-cognito--styled.cog-cognito--protect-css:not(.el-select-dropdown--long) *::after {
+  font-family: Inter;
+}

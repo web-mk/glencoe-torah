@@ -45,106 +45,56 @@
     
 
                 <!-- Title -->
-                <h2 class="payment__title">Make your monthly commitment</h2>
+                <h2 class="payment__title">Dedicate</h2>
     
-    
-                <!-- Form -->
-                <form class="payment__form">
-    
-                    <!-- ===== Full Name ===== -->
-                    <div class="payment__group">
-                        
-                        <label class="payment__label">
-                            Full Name <span class="payment__required">*</span>
-                        </label>
-    
-                        <div class="payment__row">
-    
-                            <div class="payment__field">
-                                <input type="text" class="payment__input" aria-label="First Name" required />
-                                <span class="payment__sub-label">First Name</span>
-                            </div>
-    
-                            <div class="payment__field">
-                                <input type="text" class="payment__input" aria-label="Last Name" required />
-                                <span class="payment__sub-label">Last Name</span>
-                            </div>
-    
-                        </div>
+                <div id="form1">
+                    <script src="https://www.cognitoforms.com/f/seamless.js" data-key="dRAaFn88o0CEV3wipoVjTA" data-form="180"></script>
+                </div>
+                <style>
+                    #form1 .cog-field--6 input {
+                        padding: 0;
+                        border: 0;
+                        pointer-events: none;
+                    }
+                    #form1 .cog-row:has(.cog-field--17) {
+                        display: none !important;
+                    }
+                    #form1 .cog-button__text,
+                    #form1 .cog-content p,
+                    #form1 .cog-content,
+                    #form1 .cog-input,
+                    html #form1 .cog-cognito--styled input,
+                    #form1 .cog-order-details__total,
+                    html #form1 .cog-label, :root:root:root:root:root #form1 .cog-label,
+                    html .cog-cognito--styled .cog-body h1,
+                     html .cog-cognito--styled h2,
+                     html .cog-cognito--styled h3,
+                     html .cog-cognito--styled h4,
+                     html .cog-cognito--styled h5,
+                     html .cog-cognito--styled h6, :root:root:root:root:root .cog-cognito--styled .cog-body h1,
+                     :root:root:root:root:root  #form1 .cog-cognito--styled h2,
+                     :root:root:root:root:root  #form1 .cog-cognito--styled h3,
+                     :root:root:root:root:root  #form1 .cog-cognito--styled h4,
+                     :root:root:root:root:root  #form1 .cog-cognito--styled h5,
+                     :root:root:root:root:root  #form1 .cog-cognito--styled h6,
+#form1 :root:root:root .cog-cognito--styled.cog-cognito--protect-css,
+#form1 :root:root .cog-cognito--styled.cog-cognito--protect-css:not(.el-select-dropdown--long) *, #form1 :root:root .cog-cognito--styled.cog-cognito--protect-css:not(.el-select-dropdown--long) *::before, #form1 :root:root .cog-cognito--styled.cog-cognito--protect-css:not(.el-select-dropdown--long) *::after {
+  font-family: Inter;
+}
 
-                    </div>
-    
-    
-                    <!-- ===== Amount ===== -->
-                    <div class="payment__group">
-                        <label class="payment__label">
-                            Monthly Donation Amount <span class="payment__required">*</span>
-                        </label>
-    
-                        <div class="payment__amount">
-                            <span class="payment__currency">$</span>
-                            <input type="number" class="payment__input" placeholder="Enter amount" required />
-                        </div>
-                    </div>
-    
-    
-                    <!-- ===== Email ===== -->
-                    <div class="payment__group">
-                        <label class="payment__label">
-                            Email <span class="payment__required">*</span>
-                        </label>
-    
-                        <input type="email" class="payment__input" required />
-                    </div>
-    
-    
-                    <!-- ===== Payment Method ===== -->
-                    <div class="payment__group">
-                        
-                        <label class="payment__label">
-                            Payment <span class="payment__required">*</span>
-                        </label>
-    
-                        <div class="payment__options">
-    
-                            <label class="payment__option">
-                                <input type="radio" name="paymentMethod" value="credit-card">
-                                <span>Credit Card</span>
-                            </label>
-    
-                            <label class="payment__option">
-                                <input type="radio" name="paymentMethod" value="paypal" checked>
-                                <span>Paypal</span>
-                            </label>
-    
-                        </div>
-                        
-                    </div>
-    
-                    
-                    <!-- ===== Comments ===== -->
-                    <div class="payment__group">
-                        
-                        <label class="payment__label">Comments</label>
-    
-                        <textarea class="payment__textarea" placeholder="Write your message here..."></textarea>
-                    
-                    </div>
-    
-                    
-    
-                    <!-- ===== Captcha ===== -->
-                    <!-- Add captcha here -->
-    
-    
-                    <!-- ===== Submit ===== -->
-                    <button type="submit" class="btn btn--white payment__submit">
-                        SUBMIT
-                        <span class="btn__icon btn__icon--large" aria-hidden="true"><img src="images/arow-icon.svg" alt="arrow upright icon"></span>
-                        <span class="btn__bg"></span>
-                    </button>
-    
-                </form>
+                </style>
+
+                <script>
+                    const {search} = window.location;
+                    const params = new URLSearchParams(search);
+                    const dedication = params.get('dedication');
+                    const amount = params.get('amount');
+                    Cognito.prefill({
+                        "Dedication": dedication,
+                        "Amount": amount
+                    });
+                </script>
+         
 
 
             </div>
