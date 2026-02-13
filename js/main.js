@@ -235,6 +235,23 @@ function renderDedications(list) {
   const grid = document.getElementById("dedicationGrid");
   grid.innerHTML = "";
 
+  // i want to split the dedications into chunks of three, and reverse the order within each chunk
+  let chunkSize = 3;
+
+  // if width is less than 992px then chunk size should be 2
+  // less than 768px then chunk size should be 1
+  if (window.innerWidth < 768) {
+    chunkSize = 1;
+  } else if (window.innerWidth < 992) {
+    chunkSize = 2;
+  }
+
+  list = list.reduce((acc, item, index) => {
+    if (index % chunkSize === 0) acc.push([]);
+    acc[acc.length - 1].push(item);
+    return acc;
+  }, []).map(chunk => chunk.reverse()).flat();
+
   list.forEach((item) => {
     const card = document.createElement("div");
 
