@@ -2,6 +2,41 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("Community Torah landing page loaded");
 });
 
+// ── Fundraising Ticker ────────────────────────────────────────────────────────
+(async function loadTicker() {
+  try {
+    const res = await fetch(
+      "https://data.webmk.co/?id=1GtsvnHx0eyTKD9oXRfuOlPiXCCHi2QBVt2OcWK-E4SA&range=ticker"
+    );
+    const data = await res.json();
+
+    const row = data.values[1];
+    const current = row[0]; // e.g. "$10,000"
+    const goal    = row[1]; // e.g. "$120,000"
+
+    const currentNum = parseFloat(current.replace(/[$,]/g, ""));
+    const goalNum    = parseFloat(goal.replace(/[$,]/g, ""));
+    const pct        = Math.min(100, Math.round((currentNum / goalNum) * 100));
+
+    document.getElementById("tickerRaised").textContent  = current;
+    document.getElementById("tickerGoal").textContent    = goal;
+    document.getElementById("tickerPercent").textContent = pct + "% funded";
+    document.getElementById("tickerBar").setAttribute("aria-valuenow", pct);
+
+    const ticker = document.getElementById("fundraisingTicker");
+    ticker.hidden = false;
+
+    // Defer fill animation until after the element is visible
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.getElementById("tickerFill").style.width = pct + "%";
+      });
+    });
+  } catch (err) {
+    console.warn("Ticker unavailable:", err);
+  }
+})();
+
 const trigger = document.getElementById("videoTrigger");
 const embed = document.getElementById("videoEmbed");
 if (trigger && embed) {

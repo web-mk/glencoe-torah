@@ -1458,6 +1458,111 @@ input.dedication__input {
 }
 
 
+/* ============================
+   FUNDRAISING TICKER
+============================ */
+
+.ticker {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #100821;
+  border-bottom: 1px solid rgba(180, 162, 252, 0.18);
+}
+
+.ticker__container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-block: 14px;
+}
+
+.ticker__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  white-space: nowrap;
+}
+
+.ticker__label {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.ticker__amount {
+  font-family: "Gloock", serif;
+  font-size: 22px;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.ticker__progress-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.ticker__progress-bar {
+  flex: 1;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.ticker__progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #b4a2fc;
+  border-radius: 100px;
+  transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ticker__percent {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #b4a2fc;
+  white-space: nowrap;
+  min-width: 3ch;
+  text-align: right;
+}
+
+@media screen and (max-width: 575px) {
+  .ticker__container {
+    flex-wrap: wrap;
+    column-gap: 0;
+    row-gap: 10px;
+    padding-block: 12px;
+  }
+
+  .ticker__stat {
+    flex: 1;
+  }
+
+  .ticker__stat--goal {
+    text-align: right;
+    align-items: flex-end;
+  }
+
+  .ticker__progress-wrapper {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .ticker__amount {
+    font-size: 19px;
+  }
+}
+
+/* ------------------------------ */
+
 /* COGNITO */
 html #form1 .cog-label, :root:root:root:root:root #form1 .cog-label,
 #form1 :root:root:root .cog-cognito--styled.cog-cognito--protect-css, #form1 :root:root .cog-cognito--styled.cog-cognito--protect-css:not(.el-select-dropdown--long) *, #form1 :root:root .cog-cognito--styled.cog-cognito--protect-css:not(.el-select-dropdown--long) *::before, #form1 :root:root .cog-cognito--styled.cog-cognito--protect-css:not(.el-select-dropdown--long) *::after {

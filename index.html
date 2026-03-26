@@ -60,6 +60,34 @@
 
 
 
+    <!-- FUNDRAISING TICKER -->
+    <div class="ticker" id="fundraisingTicker" role="region" aria-label="Fundraising progress" hidden>
+        <div class="container ticker__container">
+
+            <div class="ticker__stat">
+                <span class="ticker__label">Raised</span>
+                <span class="ticker__amount" id="tickerRaised">—</span>
+            </div>
+
+            <div class="ticker__progress-wrapper">
+                <div class="ticker__progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="tickerBar">
+                    <div class="ticker__progress-fill" id="tickerFill"></div>
+                </div>
+                <span class="ticker__percent" id="tickerPercent"></span>
+            </div>
+
+            <div class="ticker__stat ticker__stat--goal">
+                <span class="ticker__label">Goal</span>
+                <span class="ticker__amount" id="tickerGoal">—</span>
+            </div>
+
+        </div>
+    </div>
+    <!-- / FUNDRAISING TICKER -->
+
+
+
+
     <!-- PAGE MAIN -->
     <main id="main">
 
