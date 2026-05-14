@@ -998,6 +998,32 @@ textarea {
   border-color: #b4a2fc;
 }
 
+.dedication__card--reserved {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.dedication__card--reserved .dedication__card-content {
+  opacity: 0.45;
+}
+
+.dedication__card--reserved .dedication__checkbox::after {
+  /* content: "✕"; */
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.dedication__reserved-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
 .dedication__checkbox {
   width: 20px;
   height: 20px;

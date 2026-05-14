@@ -243,17 +243,21 @@ function parseAPIData(data) {
   const nameIndex = headers.indexOf("Name");
   const priceIndex = headers.indexOf("Price");
   const descriptionIndex = headers.indexOf("Description");
+  const reservedIndex = headers.indexOf("Reserved");
 
   return rows.map((row, index) => {
     const name = row[nameIndex] || "";
     const price = parseFloat((row[priceIndex] || "$0").replace(/[$,]/g, ""));
     const description = row[descriptionIndex] || "";
+    const reservedRaw = reservedIndex >= 0 ? (row[reservedIndex] || "") : "";
+    const isReserved = ["true", "yes", "1"].includes(reservedRaw.toString().toLowerCase());
 
     return {
       id: index,
       title: name,
       price,
       description,
+      isReserved,
       hasInput: name.toLowerCase() === "letter",
       inputLabel: "Number of letters*",
       inputValue: 0,
@@ -290,11 +294,11 @@ function renderDedications(list) {
   list.forEach((item) => {
     const card = document.createElement("div");
 
-    card.className = `dedication__card ${item.isFeatured ? "dedication__card--featured" : ""}`;
+    card.className = `dedication__card ${item.isFeatured ? "dedication__card--featured" : ""} ${item.isReserved ? "dedication__card--reserved" : ""}`;
     card.dataset.id = item.id;
 
     let inputHTML = "";
-    if (item.hasInput) {
+    if (item.hasInput && !item.isReserved) {
       inputHTML = `
   <div class="dedication__input-section">
     <label class="dedication__input-label">${item.inputLabel}</label>
@@ -316,7 +320,7 @@ function renderDedications(list) {
     card.innerHTML = `
       <span class="dedication__checkbox"></span>
       <div class="dedication__card-content">
-        <h3 class="dedication__title">${item.title} - ${formatCurrency(item.price)}</h3>
+        <h3 class="dedication__title">${item.title} - ${formatCurrency(item.price)}${item.isReserved ? ' <span class="dedication__reserved-label">Reserved</span>' : ''}</h3>
         <p class="dedication__description">${item.description}</p>
       </div>
       ${inputHTML}
@@ -416,6 +420,7 @@ function handleInputChange(card, value) {
 document.getElementById("dedicationGrid").addEventListener("click", (e) => {
   const card = e.target.closest(".dedication__card");
   if (!card) return;
+  if (card.classList.contains("dedication__card--reserved")) return;
 
   if (e.target.classList.contains("dedication__input")) return;
 
